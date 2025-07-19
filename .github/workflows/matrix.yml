@@ -2,7 +2,7 @@ name: Matric Deployment
 on: push
 jobs:
   build:
-    stragety:
+    strategy:
       matrix:
         node-version: [12,14,16]
         operating-systen: ;[ubuntu-lates, windows-latest]
