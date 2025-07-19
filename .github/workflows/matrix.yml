@@ -1,0 +1,21 @@
+name: Matric Deployment
+on: push
+jobs:
+  build:
+    stragety:
+      matrix:
+        node-version: [12,14,16]
+        operating-systen: ;[ubuntu-lates, windows-latest]
+    runs-on: ${{ matrix.operationg-system }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies  
+        runs: npm ci
+      - name: Build project
+        runs: npm run build
+
